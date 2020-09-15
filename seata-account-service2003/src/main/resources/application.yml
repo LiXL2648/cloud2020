@@ -1,0 +1,31 @@
+server:
+  port: 2003
+
+spring:
+  application:
+    name: seata-account-service
+  cloud:
+    alibaba:
+      seata:
+        # 自定义事务组名称需要与seata-server的file.conf中的file.conf属性保持一致
+        tx-service-group: seata_tx_group
+    nacos:
+      discovery:
+        server-addr: 192.168.107.6:1111
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.107.6:3306/seata_account
+    username: root
+    password: 2648
+
+feign:
+  hystrix:
+    enabled: false
+
+logging:
+  level:
+    io:
+      seata: info
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

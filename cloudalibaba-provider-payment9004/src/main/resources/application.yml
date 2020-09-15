@@ -1,0 +1,20 @@
+server:
+  port: 9004
+
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.107.6:1111
+    sentinel:
+      transport:
+        dashboard: localhost:8089
+        port: 8719
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
